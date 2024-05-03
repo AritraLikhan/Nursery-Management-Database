@@ -23,7 +23,8 @@ Create table Orders(
      customerID number(20),
      orderDate date,
      primary key(orderID),
-     foreign key(customerID) references Customers(customerID)
+     foreign key(customerID) references Customers(customerID)\
+     on delete cascade
 );   
  
 Create table OrderDetails (
@@ -32,8 +33,8 @@ Create table OrderDetails (
      plantID number(20),
      quantity number(20),
      primary key(orderDetailID),
-     foreign key(orderID) references Orders(orderID),
-     foreign key(plantID) references Plants(plantID)
+     foreign key(orderID) references Orders(orderID) on delete cascade,
+     foreign key(plantID) references Plants(plantID) on delete cascade
 );
 
 Create table Suppliers (
@@ -52,8 +53,8 @@ Create table Supply(
      supplyDate date,
      quantity number(20),
      primary key(supplyID),
-     foreign key(plantID) references Plants(plantID),
-     foreign key(supplierID) references Suppliers(supplierID)
+     foreign key(plantID) references Plants(plantID) on delete cascade,
+     foreign key(supplierID) references Suppliers(supplierID) on delete cascade
 );
 
 --altering some tables
