@@ -1,36 +1,36 @@
 -- creating database tables
 
 Create table Plants (
-    plantID number(20),
-    plantName varchar(50),
+    plantID number(20) unique not null,
+    plantName varchar(50) not null,
     plantType varchar(50),
     price number(5,2),
-    stock number(20),
+    stock number(20) not null,
     primary key(plantID)
 );
 
 Create table Customers (
-    customerID number(20),
-    firstName varchar(50),
-    lastName varchar(50),
-    email varchar(50),
-    phone number(20),
+    customerID number(20) unique not null,
+    firstName varchar(50) not null,
+    lastName varchar(50) not null,
+    email varchar(50) unique not null,
+    phone number(20) unique not null,
     primary key(customerID)
 );
 
 Create table Orders(
-     orderID number(20),
-     customerID number(20),
-     orderDate date,
+     orderID number(20) unique not null,
+     customerID number(20) not null,
+     orderDate date not null,
      primary key(orderID),
      foreign key(customerID) references Customers(customerID)\
      on delete cascade
 );   
  
 Create table OrderDetails (
-     orderDetailID number(20),
-     orderID number(20),
-     plantID number(20),
+     orderDetailID number(20) unique not null,
+     orderID number(20) unique not null,
+     plantID number(20) not null,
      quantity number(20),
      primary key(orderDetailID),
      foreign key(orderID) references Orders(orderID) on delete cascade,
@@ -38,19 +38,19 @@ Create table OrderDetails (
 );
 
 Create table Suppliers (
-     supplierID number(20),
-     supplierName varchar(50),
-     contactName varchar(50),
-     email varchar(50),
-     phone number(20),
+     supplierID number(20) unique not null,
+     supplierName varchar(50) not null,
+     contactName varchar(50) unique not null,
+     email varchar(50) unique not null,
+     phone number(20) unique not null,
      primary key(supplierID)
 );
 
 Create table Supply(
-     supplyID number(20),
-     plantID  number(20),
-     supplierID number(20),
-     supplyDate date,
+     supplyID number(20) unique not null,
+     plantID  number(20)  not null,
+     supplierID number(20) not null,
+     supplyDate date not null,
      quantity number(20),
      primary key(supplyID),
      foreign key(plantID) references Plants(plantID) on delete cascade,
