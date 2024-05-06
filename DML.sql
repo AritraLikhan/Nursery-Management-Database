@@ -150,10 +150,6 @@ SELECT * FROM OrderDetails NATURAL JOIN Plants;
 
 --set membership(and,or,not)
 
---finding orders that include plants with two specific plantIDs
-SELECT orderID FROM OrderDetails WHERE plantID = 1 AND orderID IN (SELECT orderID FROM orderDetails WHERE plantID = 2);
-
-
 --finding supplies that include either the plant with supplierID=1 or the plant with supplierID=4
 SELECT supplyID FROM Supply WHERE  supplierID = 1 OR  supplierID = 4;
 
