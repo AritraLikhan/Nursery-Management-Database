@@ -1,7 +1,7 @@
 -- creating database tables
 
 Create table Plants (
-    plantID number(20) unique not null,
+    plantID number(20) not null,
     plantName varchar(50) not null,
     plantType varchar(50),
     price number(5,2),
@@ -10,7 +10,7 @@ Create table Plants (
 );
 
 Create table Customers (
-    customerID number(20) unique not null,
+    customerID number(20) not null,
     firstName varchar(50) not null,
     lastName varchar(50) not null,
     email varchar(50) unique not null,
@@ -19,7 +19,7 @@ Create table Customers (
 );
 
 Create table Orders(
-     orderID number(20) unique not null,
+     orderID number(20) not null,
      customerID number(20) not null,
      orderDate date not null,
      primary key(orderID),
@@ -28,7 +28,7 @@ Create table Orders(
 );   
  
 Create table OrderDetails (
-     orderDetailID number(20) unique not null,
+     orderDetailID number(20) not null,
      orderID number(20) unique not null,
      plantID number(20) not null,
      quantity number(20),
@@ -38,7 +38,7 @@ Create table OrderDetails (
 );
 
 Create table Suppliers (
-     supplierID number(20) unique not null,
+     supplierID number(20) not null,
      supplierName varchar(50) not null,
      contactName varchar(50) unique not null,
      email varchar(50) unique not null,
@@ -47,7 +47,7 @@ Create table Suppliers (
 );
 
 Create table Supply(
-     supplyID number(20) unique not null,
+     supplyID number(20) not null,
      plantID  number(20)  not null,
      supplierID number(20) not null,
      supplyDate date not null,
