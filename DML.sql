@@ -78,9 +78,9 @@ select * from Supply where quantity > 100;
 --updating the data in table
 
 --changing phone number with a specified supplierID
-UPDATE Suppliers SET phone = 1278789921 WHERE supplierID = 4
+UPDATE Suppliers SET phone = 1278789921 WHERE supplierID = 4;
 
-UPDATE Suppliers SET phone = 7866013886 WHERE supplierID = 7
+UPDATE Suppliers SET phone = 1966013883 WHERE supplierID = 7;
 
 --deleting row from table
 
