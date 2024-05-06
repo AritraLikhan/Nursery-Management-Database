@@ -23,7 +23,7 @@ dbms_output.put_line('orderID: '||orders_row.orderID|| ' customerID '||orders_ro
 dbms_output.put_line('Row count: '|| orders_cursor%rowcount);
 fetch orders_cursor into orders_row.orderID,orders_row.customerID,orders_row.orderDate;
 end loop;
-close dept_cursor;
+close orders_cursor;
 end;
 /
   
@@ -67,56 +67,101 @@ END;
 
 SET SERVEROUTPUT ON
 DECLARE
-    plant_price NUMBER(5, 2) := 10.0;
+    plant_price NUMBER(5, 2);
 BEGIN
+    SELECT price into plant_price FROM plants WHERE plantID=4;
     IF plant_price < 5.0 THEN
         DBMS_OUTPUT.PUT_LINE('This plant is cheap.');
-    ELSIF plant_price < 15.0 THEN
+    ELSIF plant_price < 20.0 THEN
         DBMS_OUTPUT.PUT_LINE('This plant is moderately priced.');
     ELSE
         DBMS_OUTPUT.PUT_LINE('This plant is expensive.');
     END IF;
 END;
 /
+
   
 
---creating a procedure to insert a new supply into the Supply table
+--creating a procedure to insert a new order into the Orders table
   
-CREATE OR REPLACE PROCEDURE insert_supply (
-    p_SupplyID IN NUMBER,
-    p_PlantID IN NUMBER,
-    p_SupplierID IN NUMBER,
-    p_SupplyDate IN DATE,
-    p_Quantity IN NUMBER
+CREATE OR REPLACE PROCEDURE insert_customers (
+    p_customerID NUMBER,
+    p_fName IN VARCHAR,
+    p_lName IN VARCHAR,
+    p_email IN VARCHAR,
+    p_phone IN NUMBER
 ) AS
 BEGIN
-    INSERT INTO Supply (supplyID, plantID, supplierID, supplyDate, quantity)
-    VALUES (p_SupplyID, p_PlantID, p_SupplierID, p_SupplyDate, p_Quantity);
+    INSERT INTO Customers (customerID, firstName, lastName, email, phone)
+    VALUES (p_customerID, p_fName, p_lName, p_email, p_phone);
     COMMIT;
-EXCEPTION
-    WHEN OTHERS THEN
-        ROLLBACK;
-        RAISE;
-END insert_supply;
+END insert_customers;
+/
 
 
---Calculating the total price of all plants in the Plants table using function
-
-CREATE OR REPLACE FUNCTION calculate_total_price RETURN NUMBER AS
-    total_price NUMBER(7, 2);
+-- Calling the procedure(dummy code)
+DECLARE
+    v_customerID NUMBER;
+    v_fName VARCHAR2(50);
+    v_lName VARCHAR2(50);
+    v_email VARCHAR2(50);
+    v_phone NUMBER;
 BEGIN
-    SELECT SUM(price) INTO total_price FROM Plants;
-    RETURN total_price;
-END calculate_total_price;
+    v_customerID := 11; 
+    v_fName := 'Sagor'; 
+    v_lName := 'Roy'; 
+    v_email := 'sagor@gmail.com'; 
+    v_phone := 01294251829; 
+    insert_customers(v_customerID, v_fName, v_lName, v_email, v_phone);
+END;
+/
 
 
---Creating a trigger to automatically update the stock of the Plants when a new order is placed
+
+--Calculating the total quantity of all supplies in the Supply table using function
+
+CREATE OR REPLACE FUNCTION calculate_total_quantity RETURN NUMBER AS
+    total_quantity NUMBER(7, 2);
+BEGIN
+    SELECT SUM(quantity) INTO total_quantity FROM Supply;
+    RETURN total_quantity;
+END calculate_total_quantity;
+/
+
+--Calling the function(dummy code)
+DECLARE
+    v_total_quantity NUMBER;
+BEGIN
+    -- Call the function
+    v_total_quantity := calculate_total_quantity();
+
+    DBMS_OUTPUT.PUT_LINE('Total Quantity: ' || v_total_quantity);
+END;
+/
+
+
+
+--Creating a trigger to automatically update the stock of the Plants when an order quantity is updated
 
 CREATE OR REPLACE TRIGGER update_stock
-AFTER INSERT ON OrderDetails
+AFTER UPDATE ON OrderDetails
 FOR EACH ROW
 BEGIN
     UPDATE Plants SET stock = stock - :NEW.quantity WHERE plantID = :NEW.plantID;
 END update_stock;
+/
+  
+
+--Dummy code for demonstration of trigger effect
+DECLARE
+    v_quantity NUMBER;
+BEGIN
+    v_quantity := 10; 
+
+    -- Insert a record into OrderDetails
+    UPDATE OrderDetails SET quantity=v_quantity WHERE plantID=4;
+    COMMIT;
+END;
+/
 
 
