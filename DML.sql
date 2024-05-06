@@ -11,16 +11,16 @@ INSERT INTO Plants VALUES (8, 'Aloe Vera', 'Succulent', 12.00, 180);
 INSERT INTO Plants VALUES (9, 'Orchid', 'Flower', 20.00, 120);
 INSERT INTO Plants VALUES (10, 'Lily', 'Flower', 18.00, 130);
 
-INSERT INTO Customers VALUES (1, 'Atif', 'Aslam', 'atif@gmail.com', 1234567890);
-INSERT INTO Customers VALUES (2, 'Niharika', 'Dey', 'dey@gmail.com', 2345678901);
-INSERT INTO Customers VALUES (3, 'Emon', 'Hasan', 'emon@gmail.com', 3456789012);
-INSERT INTO Customers VALUES (4, 'Imran', 'Hossain', 'imran@gmail.com', 4567890123);
-INSERT INTO Customers VALUES (5, 'Ariful', 'Islam', 'arif@gmail.com', 5678901234);
-INSERT INTO Customers VALUES (6, 'Tasfia', 'Samiha', 'samiha@gmail.com', 6789012345);
-INSERT INTO Customers VALUES (7, 'Jisan', 'Islam', 'jisan@gmail.com', 7890123456);
-INSERT INTO Customers VALUES (8, 'Ashraf', 'Nirob', 'nirob@gmail.com', 8901234567);
-INSERT INTO Customers VALUES (9, 'Rahi', 'Islam', 'rahi@gmail.com', 9012345678);
-INSERT INTO Customers VALUES (10, 'Nila', 'Roy', 'nila@gmail.com', 1234567890);
+INSERT INTO Customers VALUES (1, 'Atif', 'Aslam', 'atif@gmail.com', 01514615949);
+INSERT INTO Customers VALUES (2, 'Niharika', 'Dey', 'dey@gmail.com', 01210690150);
+INSERT INTO Customers VALUES (3, 'Emon', 'Hasan', 'emon@gmail.com', 01736446000);
+INSERT INTO Customers VALUES (4, 'Imran', 'Hossain', 'imran@gmail.com', 01700220094);
+INSERT INTO Customers VALUES (5, 'Ariful', 'Islam', 'arif@gmail.com', 01332957887);
+INSERT INTO Customers VALUES (6, 'Tasfia', 'Samiha', 'samiha@gmail.com', 01148118265);
+INSERT INTO Customers VALUES (7, 'Jisan', 'Islam', 'jisan@gmail.com', 01184660671);
+INSERT INTO Customers VALUES (8, 'Ashraf', 'Nirob', 'nirob@gmail.com', 01497078783);
+INSERT INTO Customers VALUES (9, 'Rahi', 'Islam', 'rahi@gmail.com', 01975256817);
+INSERT INTO Customers VALUES (10, 'Nila', 'Roy', 'nila@gmail.com', 01541786924);
 
 INSERT INTO Orders VALUES (1, 3, TO_DATE('2024-05-01', 'YYYY-MM-DD'));
 INSERT INTO Orders VALUES (2, 10, TO_DATE('2024-05-02', 'YYYY-MM-DD'));
@@ -44,16 +44,20 @@ INSERT INTO OrderDetails VALUES (8, 8, 9, 3);
 INSERT INTO OrderDetails VALUES (9, 9, 5, 1);
 INSERT INTO OrderDetails VALUES (10, 10, 8, 2);
 
-INSERT INTO Suppliers VALUES (1, 'Green Thumb', 'Hasan', 'hasan@greenthumb.com', 1234567890);
-INSERT INTO Suppliers VALUES (2, 'Plant Lovers', 'Joy', 'joy@plantlovers.com', 2345678901);
-INSERT INTO Suppliers VALUES (3, 'Nature Nurture', 'Anika', 'anika@naturenurture.com', 3456789012);
-INSERT INTO Suppliers VALUES (4, 'Bloom Buddy', 'Murata', 'murata@bloombuddy.com', 4567890123);
-INSERT INTO Suppliers VALUES (5, 'Flora Friends', 'Sakib', 'sakib@florafriends.com', 5678901234);
-INSERT INTO Suppliers VALUES (6, 'Leafy Love', 'Meftaul', 'meftaul@leafylove.com', 6789012345);
-INSERT INTO Suppliers VALUES (7, 'Blossom Buddy', 'Abir', 'abir@blossombuddy.com', 7890123456);
-INSERT INTO Suppliers VALUES (8, 'Garden Gurus', 'Eren', 'eren@gardengurus.com', 8901234567);
-INSERT INTO Suppliers VALUES (9, 'Plant Pals', 'Faysal', 'faysal@plantpals.com', 9012345678);
-INSERT INTO Suppliers VALUES (10, 'Green Growers', 'Mahmud', 'mahmudf@greengrowers.com', 1234567890);
+INSERT INTO Suppliers VALUES (1, 'Green Thumb', 'Hasan', 'hasan@greenthumb.com', 01542696778);
+INSERT INTO Suppliers VALUES (2, 'Plant Lovers', 'Joy', 'joy@plantlovers.com', 01207077958);
+INSERT INTO Suppliers VALUES (3, 'Nature Nurture', 'Anika', 'anika@naturenurture.com', 01196809250
+);
+INSERT INTO Suppliers VALUES (4, 'Bloom Buddy', 'Murata', 'murata@bloombuddy.com', 01716744776);
+INSERT INTO Suppliers VALUES (5, 'Flora Friends', 'Sakib', 'sakib@florafriends.com', 01505223315
+);
+INSERT INTO Suppliers VALUES (6, 'Leafy Love', 'Meftaul', 'meftaul@leafylove.com', 01302670480);
+INSERT INTO Suppliers VALUES (7, 'Blossom Buddy', 'Abir', 'abir@blossombuddy.com', 01113727686
+);
+INSERT INTO Suppliers VALUES (8, 'Garden Gurus', 'Eren', 'eren@gardengurus.com', 01407832948
+);
+INSERT INTO Suppliers VALUES (9, 'Plant Pals', 'Faysal', 'faysal@plantpals.com', 01570479877);
+INSERT INTO Suppliers VALUES (10, 'Green Growers', 'Mahmud', 'mahmudf@greengrowers.com', 01184130690);
 
 INSERT INTO Supply VALUES (1, 1, 1, TO_DATE('2024-05-01', 'YYYY-MM-DD'), 50);
 INSERT INTO Supply VALUES (2, 2, 2, TO_DATE('2024-05-02', 'YYYY-MM-DD'), 60);
