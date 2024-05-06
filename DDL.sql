@@ -23,7 +23,7 @@ Create table Orders(
      customerID number(20) not null,
      orderDate date not null,
      primary key(orderID),
-     foreign key(customerID) references Customers(customerID)\
+     foreign key(customerID) references Customers(customerID)
      on delete cascade
 );   
  
