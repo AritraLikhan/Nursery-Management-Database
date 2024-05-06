@@ -89,18 +89,19 @@ DELETE FROM Orders WHERE orderID IN ( SELECT orderID FROM Orders WHERE customerI
 
 --union
 
---finding name of the customers that has 'A' in the firstName or 'i' in the lastName
+--finding name of the customers that starts with 'A' in the firstName or has 'i' in the lastName
 SELECT firstName FROM Customers WHERE firstName LIKE 'A%' UNION SELECT lastName FROM Customers WHERE lastName LIKE '%i%'; 
 
 --intersect
 
---finding name of the customers that has 'A' in the firstName and 'i' in the lastName
-SELECT firstName from Customers where firstName like 'A%' intersect select lastName from Customers where lastName like '%i%'; 
+--finding name of the customers that starts with 'A' and has an 'i' in the firstName
+SELECT firstName from Customers where firstName like 'A%' intersect select firstName from Customers where firstName like '%i%';
 
 --with clause
 
 --finding info of the orders with the highest quantity using with clause
-WITH maximum AS (SELECT MAX(quantity) AS max_quantity FROM OrderDetails);
+WITH maximum AS (SELECT MAX(quantity) AS max_quantity FROM OrderDetails) SELECT max_quantity FROM maximum;
+
 
 --sum: aggregate function
 
@@ -130,7 +131,7 @@ SELECT COUNT(DISTINCT plantType) FROM Plants;
 --group by
 
 --finding the total quantity of each type of plant in the nursery
-SELECT Type, SUM(stock) FROM Plants GROUP BY plantType;
+SELECT plantType, SUM(stock) FROM Plants GROUP BY plantType;
 
 --having
 
