@@ -65,11 +65,11 @@ ALTER TABLE Customers ADD (address VARCHAR(100));
 --modifying the price column in the Plants table to increase its precision
 ALTER TABLE Plants MODIFY (price NUMBER(10,3));
 
---removing the phone column from the Suppliers table
-ALTER TABLE Suppliers DROP COLUMN phone;
+--removing the address column from the Customers table
+ALTER TABLE Customers DROP COLUMN address;
 
---renaming the OrderDetails table to Order_Items
-ALTER TABLE OrderDetails RENAME TO Order_Items;
+--renaming the OrderDetails table to OrderItems
+ALTER TABLE OrderDetails RENAME TO OrderItems;
 
 
 
