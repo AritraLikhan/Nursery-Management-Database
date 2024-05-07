@@ -46,16 +46,12 @@ INSERT INTO OrderDetails VALUES (10, 10, 8, 2);
 
 INSERT INTO Suppliers VALUES (1, 'Green Thumb', 'Hasan', 'hasan@greenthumb.com', 01542696778);
 INSERT INTO Suppliers VALUES (2, 'Plant Lovers', 'Joy', 'joy@plantlovers.com', 01207077958);
-INSERT INTO Suppliers VALUES (3, 'Nature Nurture', 'Anika', 'anika@naturenurture.com', 01196809250
-);
+INSERT INTO Suppliers VALUES (3, 'Nature Nurture', 'Anika', 'anika@naturenurture.com', 01196809250);
 INSERT INTO Suppliers VALUES (4, 'Bloom Buddy', 'Murata', 'murata@bloombuddy.com', 01716744776);
-INSERT INTO Suppliers VALUES (5, 'Flora Friends', 'Sakib', 'sakib@florafriends.com', 01505223315
-);
+INSERT INTO Suppliers VALUES (5, 'Flora Friends', 'Sakib', 'sakib@florafriends.com', 01505223315);
 INSERT INTO Suppliers VALUES (6, 'Leafy Love', 'Meftaul', 'meftaul@leafylove.com', 01302670480);
-INSERT INTO Suppliers VALUES (7, 'Blossom Buddy', 'Abir', 'abir@blossombuddy.com', 01113727686
-);
-INSERT INTO Suppliers VALUES (8, 'Garden Gurus', 'Eren', 'eren@gardengurus.com', 01407832948
-);
+INSERT INTO Suppliers VALUES (7, 'Blossom Buddy', 'Abir', 'abir@blossombuddy.com', 01113727686);
+INSERT INTO Suppliers VALUES (8, 'Garden Gurus', 'Eren', 'eren@gardengurus.com', 01407832948);
 INSERT INTO Suppliers VALUES (9, 'Plant Pals', 'Faysal', 'faysal@plantpals.com', 01570479877);
 INSERT INTO Suppliers VALUES (10, 'Green Growers', 'Mahmud', 'mahmudf@greengrowers.com', 01184130690);
 
